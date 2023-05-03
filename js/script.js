@@ -1,11 +1,17 @@
+const numbers = document.querySelectorAll(".number");
+numbers.forEach((number) => {
+  number.addEventListener('click', () => {
+    output();
+  });
+});
+
 function output() {
-    const outputValue = document.getElementById('outputValue');
-    outputValue.innerText = outputValue;
-    if(outputValue.length > 9) {
-        outputValue.innerText = outputValue.substring(0, 9);
-    }
+  const outputValue = document.getElementById('outputValue');
+  outputValue.textContent = number;
+  if(outputValue.length > 9) {
+      outputValue.innerText = outputValue.substring(0, 9);
+  }
 } 
-output();
 
 function add() {
   const addKey = document.querySelector('#addition');
@@ -47,13 +53,3 @@ function operate() {
 }
 operate();
 
-const numbers = document.querySelectorAll(".number");
-const output = document.querySelector("#outputValue");
-numbers.forEach((number) => {
-  number.addEventListener('click', () => {
-    if (output != NaN) {
-      output = output + number.id;
-      output.textContent = output;
-    }
-  });
-});
