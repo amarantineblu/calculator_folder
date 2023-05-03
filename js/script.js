@@ -1,13 +1,14 @@
 const numbers = document.querySelectorAll(".number");
 numbers.forEach((number) => {
   number.addEventListener('click', () => {
-    output();
+    output(number.id);
   });
 });
 
-function output() {
-  const outputValue = document.getElementById('outputValue');
-  outputValue.textContent = number;
+function output(selectedNumber) {
+  var outputValue = document.getElementById('outputValue');
+  outputValue.textContent = selectedNumber;
+  const outputValue = outputValue + selectedNumber;
   if(outputValue.length > 9) {
       outputValue.innerText = outputValue.substring(0, 9);
   }
@@ -16,7 +17,7 @@ function output() {
 function add() {
   const addKey = document.querySelector('#addition');
   addition.addEventListener('click', (p) => {
-    console.log("I am here");
+    
   });
 }
 add();
@@ -52,4 +53,5 @@ function operate() {
   });
 }
 operate();
+
 
