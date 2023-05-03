@@ -1,57 +1,91 @@
-const numbers = document.querySelectorAll(".number");
-numbers.forEach((number) => {
-  number.addEventListener('click', () => {
-    output(number.id);
-  });
-});
-
-function output(selectedNumber) {
-  var outputValue = document.getElementById('outputValue');
-  outputValue.textContent = selectedNumber;
-  const outputValue = outputValue + selectedNumber;
-  if(outputValue.length > 9) {
-      outputValue.innerText = outputValue.substring(0, 9);
-  }
-} 
-
-function add() {
-  const addKey = document.querySelector('#addition');
+function addition() {
+  var output = getOutput();
+  const addition = document.querySelector('#addition');
   addition.addEventListener('click', (p) => {
-    
+    addValue = addition.textContent;
+    printOutput(addValue);
   });
 }
-add();
+addition();
 
-function subtract() {
-  const subtractKey = document.querySelector('#subtraction');
-  subtraction.addEventListener('click', (p) => {
-    console.log("I am subtract");
+function clear() {
+  const clear = document.querySelector("#clear");
+  clear.addEventListener('click', (p) => {
+    printOutput("");
+    printHistory("");
   });
 }
-subtract();
+clear();
 
-function multiply() {
-  const addKey = document.querySelector('#multiplication');
-  multiplicaton.addEventListener('click', (p) => {
-    console.log("I am multiplication");
-  });
-}
-multiply();
-
-function divide() {
-  const addKey = document.querySelector('#divisor');
-  divisor.addEventListener('click', (p) => {
-    console.log("I am a divisor");
-  });
-}
-divide();
+ function backspace() {
+   var output = reverseNumberFormat(getOutput().toString());
+   const backspace = document.querySelector("#backspace");
+   backspace.addEventListener("click"), (p) => {
+     var outputLenght = output.lenght
+     output = outputLenght.slice(0,-1);
+     printOutput(output); 
+   }
+ }
+ backspace();
 
 function operate() {
-  const operate = document.querySelector('#operate');
-  operate.addEventListener('click', (p) => {
-    console.log("I will evaluate");
-  });
+  var output = getOutput();
+  var history = getHistory();
+  if (output != '') {
+    output = reverseNumberFormat(output);
+    history = history + output;
+    var operation = document.getElementById("operate");
+    operation = eval(history);
+    printOutput(operation);
+  } else {
+    history = history + this.id;
+    printHistory(history);
+    printOutput("");
+  }
 }
 operate();
 
+function getHistory() {
+  return document.getElementById("historyValue").textContent;
+}
 
+function printHistory(num) {
+  document.getElementById("historyValue").textContent = num;
+}
+
+function getOutput() {
+  return document.getElementById("outputValue").textContent;
+}
+
+function printOutput(num) {
+  if (num == "") {
+    document.getElementById("outputValue").textContent = num;
+  } else {
+    document.getElementById("outputValue").textContent = getFormattedNumber(num);
+  }
+}
+
+function getFormattedNumber(num) {
+  if (num == "-") {
+    return "";
+  }
+  var n = Number(num);
+  var value = n.toLocaleString("en");
+  return value;
+}
+
+function reverseNumberFormat(num) {
+  return Number(num.replace(/,/g, ''));
+}
+
+const numbers = document.querySelectorAll(".number");
+numbers.forEach((number) => {
+  number.addEventListener('click', (p) => {
+    console.log(number.id);
+    var output = reverseNumberFormat(getOutput());
+    if (output != NaN) {
+      output = output + number.id;
+      printOutput(output);
+    }
+  })
+})
