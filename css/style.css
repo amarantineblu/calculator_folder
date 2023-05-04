@@ -15,7 +15,7 @@
 
 #calculator{
   width: 320px;
-  height: 520px;
+  height: 530px;
   background-color: #eaedef ;
   margin: 0 auto;
   top: 20px;
@@ -27,6 +27,7 @@
 #results{
   height: 220px;
   padding: 10px 0;
+  margin: 10px;
   background-color: aqua;
   color: white;
   font-weight: bolder;
@@ -50,7 +51,8 @@
   height: 300px;
 }
 
-.operator, .number, .empty{
+.operator, .number, .empty, .addition, 
+.subtraction, .division, .multiplication{
   width: 35px;
   height: 35px;
   margin: 5px 20px;
@@ -62,7 +64,8 @@
   border-width: 0;
 }
 
-.number, .empty{
+.number, .empty, .addition, 
+.subtraction, .division, .multiplication{
   background-color: #eaedef ;
 }
 
@@ -73,6 +76,9 @@
 button:nth-child(4){
   font-size: 20px;
   background-color: aqua;
+  display: block;
+  height: 40px;
+  border-radius: 5px;
 }
 
 button:nth-child(8){

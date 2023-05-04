@@ -1,12 +1,39 @@
 function addition() {
   var output = getOutput();
-  const addition = document.querySelector('#addition');
+  const addition = document.querySelector('.addition');
   addition.addEventListener('click', (p) => {
-    addValue = addition.textContent;
-    printOutput(addValue);
+    console.log(addition.id);
   });
 }
 addition();
+
+function subtraction() {
+  var output = getOutput();
+  const subtraction = document.querySelector('.subtraction');
+  subtraction.addEventListener('click', (p) => {
+    console.log(subtraction.id);
+  });
+}
+subtraction();
+
+function multiplication() {
+  var output = getOutput();
+  const multiplication = document.querySelector('.multiplication');
+  multiplication.addEventListener('click', (p) => {
+    console.log(multiplication.id);
+    printOutput(multiplication.id)
+  });
+}
+multiplication();
+
+function division() {
+  var output = getOutput();
+  const division = document.querySelector('.division');
+  division.addEventListener('click', (p) => {
+    console.log(division.id);
+  });
+}
+division();
 
 function clear() {
   const clear = document.querySelector("#clear");
@@ -17,22 +44,28 @@ function clear() {
 }
 clear();
 
- function backspace() {
-   var output = reverseNumberFormat(getOutput().toString());
-   const backspace = document.querySelector("#backspace");
-   backspace.addEventListener("click"), (p) => {
-     var outputLenght = output.lenght
-     output = outputLenght.slice(0,-1);
-     printOutput(output); 
-   }
- }
- backspace();
+function backspace() {
+  var output = reverseNumberFormat(getOutput().toString());
+  const backspace = document.getElementById("#backspace");
+  backspace.addEventListener("click", (p) => {
+    var outputLenght = output.lenght;
+    console.log(outputLenght);
+      output = outputLenght.slice(0, -1);
+      printOutput(output);
+  });
+}
+backspace();
 
 function operate() {
   var output = getOutput();
   var history = getHistory();
-  if (output != '') {
-    output = reverseNumberFormat(output);
+  if (output == "" && history != "") {
+    if (isNaN(history[history.length - 1])) {
+      history = history.substring(0, history.length - 1);
+    }
+  }
+  if (output != '' || history!="") {
+    output = output==""? output:reverseNumberFormat(output);
     history = history + output;
     var operation = document.getElementById("operate");
     operation = eval(history);
