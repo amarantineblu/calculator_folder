@@ -2,7 +2,7 @@ function addition() {
   var output = getOutput();
   const addition = document.querySelector('.addition');
   addition.addEventListener('click', (p) => {
-    console.log(addition.id);
+    printOutput(addition.id);
   });
 }
 addition();
@@ -11,7 +11,7 @@ function subtraction() {
   var output = getOutput();
   const subtraction = document.querySelector('.subtraction');
   subtraction.addEventListener('click', (p) => {
-    console.log(subtraction.id);
+    printOutput(subtraction.id);
   });
 }
 subtraction();
@@ -45,13 +45,12 @@ function clear() {
 clear();
 
 function backspace() {
-  var output = reverseNumberFormat(getOutput().toString());
-  const backspace = document.getElementById("#backspace");
+  const backspace = document.querySelector("#backspace");
   backspace.addEventListener("click", (p) => {
+    var output = reverseNumberFormat(getOutput().toString());
     var outputLenght = output.lenght;
-    console.log(outputLenght);
-      output = outputLenght.slice(0, -1);
-      printOutput(output);
+    output = outputLenght.slice(0, -1);
+    printOutput(output);
   });
 }
 backspace();
@@ -67,7 +66,7 @@ function operate() {
   if (output != '' || history!="") {
     output = output==""? output:reverseNumberFormat(output);
     history = history + output;
-    var operation = document.getElementById("operate");
+    var operation = document.getElementById("operator");
     operation = eval(history);
     printOutput(operation);
   } else {
@@ -122,3 +121,12 @@ numbers.forEach((number) => {
     }
   })
 })
+
+const calculator = document.querySelector("#calculator");
+const displayHistory = document.querySelector(".displayHistory");
+const results = document.querySelector('#results')
+const keyboards = document.querySelector("#keyboards")
+displayHistory.addEventListener('click', () => {
+  results.setAttribute('style', 'height:400px');
+  calculator.setAttribute('style', 'overflow:hidden')
+});

@@ -11,6 +11,17 @@
   width: 1000px;
   height: 550px;
   margin: 20px auto;
+  display: flex;
+}
+
+.support{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  display: none;
 }
 
 #calculator{
@@ -20,15 +31,15 @@
   margin: 0 auto;
   top: 20px;
   position: relative;
-  border-radius: 5px;
+  border-radius: 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
 }
 
 #results{
   height: 220px;
-  padding: 10px 0;
-  margin: 10px;
+  padding: 10px;
   background-color: aqua;
+  border-radius: 25px;
   color: white;
   font-weight: bolder;
 }
@@ -51,26 +62,22 @@
   height: 300px;
 }
 
-.operator, .number, .empty, .addition, 
+.operator, .number, .empty, .displayHistory, .addition, 
 .subtraction, .division, .multiplication{
   width: 35px;
   height: 35px;
   margin: 5px 20px;
   float: left;
   border-radius: 50%;
+  background-color: #eaedef ;
   text-align: center;
   font-weight: bold;
   font-size: 15px;
   border-width: 0;
 }
 
-.number, .empty, .addition, 
-.subtraction, .division, .multiplication{
-  background-color: #eaedef ;
-}
-
 .number:active, .operator:active{
-  font-size: 17px;
+  font-size: 19px;
 }
 
 button:nth-child(4){
@@ -88,7 +95,10 @@ button:nth-child(8){
 
 button:nth-child(12){
   font-size: 20px;
-  background-color: aqua;
+  background-color: #eaedef ;
+  border-radius: 5px;
+  border: 2px solid black;
+  overflow: hidden;
 }
 
 button:nth-child(19){
