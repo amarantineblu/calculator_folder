@@ -1,36 +1,50 @@
+output = getOutput();
+history = getHistory();
 function addition() {
-  var output = getOutput();
+  output = reverseNumberFormat(output);
+  history = history + output;
   const addition = document.querySelector('.addition');
   addition.addEventListener('click', (p) => {
-    printOutput(addition.id);
+    history = history + addition.id;
+    printHistory(history);
+    printOutput("");
   });
-}
+};
 addition();
 
 function subtraction() {
-  var output = getOutput();
+  var output = reverseNumberFormat(output);
+  var history = history + output;
   const subtraction = document.querySelector('.subtraction');
   subtraction.addEventListener('click', (p) => {
-    printOutput(subtraction.id);
+    history = history + subtraction.id;
+    printHistory(history);
+    printOutput("");
   });
-}
+};
 subtraction();
 
 function multiplication() {
-  var output = getOutput();
+  var output = reverseNumberFormat(output);
+  var history = history + output;
   const multiplication = document.querySelector('.multiplication');
   multiplication.addEventListener('click', (p) => {
-    console.log(multiplication.id);
-    printOutput(multiplication.id)
+    history = history + multiplication.id;
+    printHistory(history);
+    printOutput("");
   });
 }
 multiplication();
 
 function division() {
+  var output = reverseNumberFormat(output);
+  var history = history + output;
   var output = getOutput();
   const division = document.querySelector('.division');
   division.addEventListener('click', (p) => {
-    console.log(division.id);
+    history = history + division.id;
+    printHistory(history);
+    printOutput("");
   });
 }
 division();
@@ -47,9 +61,8 @@ clear();
 function backspace() {
   const backspace = document.querySelector("#backspace");
   backspace.addEventListener("click", (p) => {
-    var output = reverseNumberFormat(getOutput().toString());
-    var outputLenght = output.lenght;
-    output = outputLenght.slice(0, -1);
+    var output = reverseNumberFormat(getOutput()).toString();
+    output = output.substr(0, output.length -1); 
     printOutput(output);
   });
 }
