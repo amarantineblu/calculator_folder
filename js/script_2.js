@@ -1,6 +1,7 @@
 function backspace(theString) {
   return theString.substring(0, theString.length - 1);
 }
+
 var numbers = document.querySelectorAll(".number");
 var historyValue = document.querySelector("#historyValue");
 var result = document.querySelector("#outputValue");
@@ -20,7 +21,6 @@ numbers.forEach((number) => {
       countMinus++;
       countMultiply++;
       countDivide++;
-
       if (countPlus > 1 && number.id == '+'
         || countMinus > 1 && number.id == '-'
         || countMultiply > 1 && number.id == '*'
@@ -61,6 +61,7 @@ numbers.forEach((number) => {
 
   });
 });
+
 equalTo.addEventListener('click', (p) => {
   // alert(result.textContent);
   historyValue.textContent = result.textContent;
@@ -82,5 +83,6 @@ const calculator = document.querySelector("#calculator");
 const support = document.querySelector("#support")
 support.addEventListener('click', (p) => {
   calculator.classList.toggle("active");
-  calculator.textContent = " <h1> Calculator Support </h1> <p> If you are seeing this, you are seeing Calculator support. </p>";
+  calculator.textContent =
+  " <h1> Calculator Support </h1> <p> If you are seeing this, you are seeing Calculator support. </p>";
 });
