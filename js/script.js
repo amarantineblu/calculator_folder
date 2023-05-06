@@ -210,4 +210,7 @@ clear.addEventListener("click", (p) => {
   historyValue.textContent = "";
 });
 
-var backspace = 
+var spacing = document.querySelector("#spacing");
+spacing.addEventListener("click", (p) => {
+  // backspace(spacing);
+});
