@@ -26,45 +26,31 @@ numbers.forEach((number) => {
         || countMinus > 1 && number.id == '-'
         || countMultiply > 1 && number.id == '*'
         || countDivide > 1 && number.id == '/') {
-        console.log(1);
         historyValue.textContent += result.textContent + ' ';
-        console.log(2);
         result.textContent = eval(result.textContent);
         result.textContent += number.id;
-        console.log(3);
         shouldHistory = true;
-        console.log(4);
-        console.log('win ' + countPlus);
-        console.log(7);
         // move to history
       } else if (countPlus == 1) {
         // 
-        console.log('Garri ' + countPlus);
         result.textContent += number.id;
       } else {
         // 
-        console.log('Loose ' + countPlus);
         result.textContent += number.id;
       }
     } else {
-      console.log('Tiger');
       result.textContent += number.id;
     }
-    // var initialHistory = '';
-    // result.textContent += number.id;
 
     if (result.textContent.includes('+') || result.textContent.includes('-') || result.textContent.includes('*')) {
       if (number.id != "+" && number.id != "-" && number.id != "*" && number.id != "/" && shouldHistory) {
         historyValue.textContent += result.textContent;
-        // result.textContent = eval(result.textContent);  
       }
     }
-
   });
 });
 
 equalTo.addEventListener('click', (p) => {
-  // alert(result.textContent);
   historyValue.textContent = result.textContent;
   result.textContent = eval(result.textContent);
 });
