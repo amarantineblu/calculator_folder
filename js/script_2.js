@@ -91,5 +91,5 @@ const support = document.querySelector("#support")
 support.addEventListener('click', (p) => {
   calculator.classList.toggle("active");
   calculator.textContent =
-  " <h1> Calculator Support </h1> <p> If you are seeing this, you are seeing Calculator support. </p>";
+  "<h1> Calculator Support </h1> <p> If you are seeing this, you are seeing Calculator support. </p>";
 });
