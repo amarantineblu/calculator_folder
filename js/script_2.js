@@ -6,6 +6,7 @@ var numbers = document.querySelectorAll(".number");
 var historyValue = document.querySelector("#historyValue");
 var result = document.querySelector("#outputValue");
 var dot = document.querySelector(".dot");
+var clear = document.querySelector("#clear");
 var equalTo = document.querySelector(".equalTo");
 var backSpace = document.querySelector("#spacing");
 numbers.forEach((number) => {
@@ -71,6 +72,12 @@ equalTo.addEventListener('click', (p) => {
 backSpace.addEventListener('click', (p) => {
   result.textContent = backspace(result.textContent);
 });
+
+clear.addEventListener('click', (p) => {
+  result.textContent = "";
+  historyValue.textContent = "";
+});
+
 dot.addEventListener('click', (p) => {
   var theString = result.textContent;
   count = theString.split(".").length - 1;
