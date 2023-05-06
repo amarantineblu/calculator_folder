@@ -58,6 +58,10 @@
   text-align: right;
 }
 
+.hv{
+  color: red;
+}
+
 #keyboards{
   height: 300px;
 }
