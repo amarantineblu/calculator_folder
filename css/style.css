@@ -39,6 +39,7 @@
   border-radius: 25px;
   color: white;
   font-weight: bolder;
+  overflow: auto;
 }
 
 #history{
